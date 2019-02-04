@@ -10,12 +10,10 @@ type Share struct {
 
 var Ledger []Share
 
-type LotteryRule struct {
-  Owner string
-  winningNumber int
-}
+lottery := make(map[string]int)
 
-var LotteryRules []LotteryRule
+lottery["fox"] = 1
+lottery["paul"] = 2
 
 func init() {
   Ledger = []Share{
@@ -28,11 +26,6 @@ func init() {
     {"C", 3,"bank"},
     {"C", 3,"bank"},
     {"C", 3,"bank"},
-  }
-
-  LotteryRules = []LotteryRule{
-    {"Fox", 1},
-    {"Paul", 2},
   }
 }
 

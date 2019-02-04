@@ -6,9 +6,6 @@ import "time"
 import "math/rand"
 
 func main() {
-  ledger := bank.Ledger
-	fmt.Println(ledger)
-
   // init random number generator
   rand := rand.New(rand.NewSource(time.Now().UnixNano()))
 
