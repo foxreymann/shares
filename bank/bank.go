@@ -46,9 +46,25 @@ func Withdraw(shareType string, newOwner string, lotteryNumber int) (*Share, err
   }
 
   // run Transfer function
-  return Transfer(shareType, newOwner)
+  return Transfer(shareType, "bank", newOwner)
 }
 
-func Transfer(shareType string, newOwner string) (*Share, error) {
+func Transfer(shareType string, owner string, newOwner string) (*Share, error) {
+  // check if owner has balance
+
+  var shareToTransfer *Share = nil
+
+  for _, share := range Ledger {
+    if share.Type == shareType && share.Owner == owner {
+      fmt.Println(share)
+      shareToTransfer = &share
+      break
+    }
+  }
+
+  fmt.Println(shareToTransfer)
+
+
+  // make the transfer
   return nil, errors.New("not yet implmenented")
 }

@@ -8,5 +8,5 @@ func main() {
   // init random number generator
   rand := rand.New(rand.NewSource(time.Now().UnixNano()))
 
-  bank.Withdraw("A", "Fox", rand.Intn(4))
+  bank.Withdraw("A", "fox", rand.Intn(4))
 }
