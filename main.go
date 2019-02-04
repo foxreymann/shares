@@ -1,6 +1,5 @@
 package main
 
-import "fmt"
 import "github.com/foxreymann/shares/bank"
 import "time"
 import "math/rand"
