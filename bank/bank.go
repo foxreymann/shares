@@ -15,7 +15,7 @@ type LotteryRule struct {
   winningNumber int
 }
 
-type LotteryRules []LotteryRule
+var LotteryRules []LotteryRule
 
 func init() {
   Ledger = []Share{
