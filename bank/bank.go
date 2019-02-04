@@ -38,7 +38,7 @@ func init() {
 
 func Withdraw(shareType string, newOwner string, lotteryNumber int) bool {
   fmt.Println(lotteryNumber)
-  // check randomNumber
+  // check lottery number
   // run Transfer function
   return Transfer(shareType, newOwner)
 }
