@@ -32,17 +32,16 @@ func init() {
 }
 
 func Withdraw(shareType string, newOwner string, lotteryNumber int) (*Share, error) {
-  fmt.Println(lotteryNumber)
 
   _, isOwnerInLottery := lottery[newOwner]
 
   if !isOwnerInLottery {
-    return nil, errors.New("Owner not in the lottery")
+    return nil, errors.New(newOwner + " not in the lottery")
   }
 
   // check lottery number
   if lottery[newOwner] != lotteryNumber {
-    return nil, errors.New("Owner didn't win the lottery")
+    return nil, errors.New(newOwner + " didn't win the lottery")
   }
 
   // run Transfer function
@@ -57,16 +56,21 @@ func Transfer(shareType string, owner string, newOwner string) (*Share, error) {
   for i, share := range Ledger {
     idx = i
     if share.Type == shareType && share.Owner == owner {
-      fmt.Println(share)
       shareToTransfer = &share
       break
     }
   }
 
-  fmt.Println(Ledger)
+  if shareToTransfer == nil {
+    return nil, errors.New(owner + " doesn't have share to transfer")
+  }
+
+
   // make the transfer
   shareToTransfer.Owner = newOwner
   Ledger[idx] = *shareToTransfer
+
+  fmt.Println("New ledger state:")
   fmt.Println(Ledger)
 
   return shareToTransfer, nil
